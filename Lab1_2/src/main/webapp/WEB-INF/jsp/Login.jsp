@@ -4,9 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>User authentication</title>
 </head>
 <body>
+<form action="/Lab1_2/login" method="post">
+<label>Name</label><input type="text" name="username"><br>
+<label>Password</label><input type="password" name="password"><br>
+<input type="Submit" name="Submit" value="Submit">
+<span>${message}</span>
 
+</form>
 </body>
 </html>

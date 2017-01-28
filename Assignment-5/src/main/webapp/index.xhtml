@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
+	<title>#{msgs.windowTitle}</title>
+</h:head>
+<h:body>
+	<p>
+		<h:link value=" #{msgs.addStudent}" outcome="addStudent" />
+	</p>
+	<h:form>
+		<h:dataTable value="#{tableData.names}" var="name"
+			captionClass="caption" styleClass="nameTable" headerClass="header"
+			rowClasses="oddRow, evenRow">
+			<f:facet name="caption">#{msgs.caption}</f:facet>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.editColumn}" />
+				</f:facet>
+				<h:selectBooleanCheckbox value="#{name.editable}" onclick="submit()" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.lastnameColumn}" />
+				</f:facet>
+				<h:inputText value="#{name.last}" size="10"
+					rendered="#{name.editable}"></h:inputText>
+				<h:outputText value="#{name.last}" rendered="#{not name.editable}"></h:outputText>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msgs.firstnameColumn}" />
+				</f:facet>
+				<h:inputText value="#{name.first}" size="10"
+					rendered="#{name.editable}"></h:inputText>
+				<h:outputText value="#{name.first}" rendered="#{not name.editable}"></h:outputText>
+
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="" />
+				</f:facet>
+				<h:commandLink value="#{msgs.deleteColumn}"
+					action="#{tableData.deleteRowAction(name)}"></h:commandLink>
+			</h:column>
+
+		</h:dataTable>
+		<h:commandButton value="#{msgs.saveChangesButtonText}"
+			action="#{tableData.saveAction()}"></h:commandButton>
+	</h:form>
+</h:body>
+</html>

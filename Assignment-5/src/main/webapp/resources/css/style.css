@@ -1,0 +1,32 @@
+.caption {
+	font-size: 0.95em;
+	font-style: italic;
+	width: 250px;
+}
+
+.nameTable {
+	border: bold solid red;
+}
+
+.header {
+	text-align: center;
+	font-style: italic;
+	color: cloud;
+	background: teal;
+}
+
+.oddRow {
+	height: 25px;
+	text-align: center;
+	background: gray;
+}
+
+.evenRow {
+	text-align: center;
+	background: PowderBlue;
+}
+
+.addStudnet {
+	display: block;
+	text-align: center;
+}

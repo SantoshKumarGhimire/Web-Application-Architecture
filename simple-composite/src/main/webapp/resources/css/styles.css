@@ -1,0 +1,32 @@
+body {
+   background: #fefeef;	
+}
+
+.header {
+  padding: 20px;
+  margin-bottom: 10px;
+  background: #dddddd;
+  border: 1px solid #cccccc;
+  font-size: 1.4em;
+  font-style: italic;
+  font-family: Palatino;
+  right: 20px;
+  text-align: center;
+}
+
+.prompt {
+  font-size: 1.15em; 
+  margin-left: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: Palatino;
+}
+
+.error {
+  color: red;
+}
+
+.icon {
+  margin: 10px;
+  border: none;
+}

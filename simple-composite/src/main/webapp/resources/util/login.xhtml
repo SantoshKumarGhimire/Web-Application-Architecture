@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+
+ 	<composite:editableValueHolder name="nameInput" targets="form:name"/>
+ 	<composite:editableValueHolder name="passwordInput" targets="form:password"/>
+ 	<composite:editableValueHolder name="inputs" targets="form:name form:password"/>
+
+	<composite:attribute name="name" />
+	
+	<composite:attribute name="password"/>
+	
+	
+	<composite:attribute name="namePrompt" />
+	
+	
+	<composite:attribute name="passwordPrompt" />
+	
+	
+	<composite:attribute name="loginButtonText" />
+	
+	
+	<composite:attribute name="loginAction" method-signature="java.lang.String action()" />
+
+
+
+</composite:interface>
+
+
+
+<composite:implementation>
+
+	<h:form id="form">
+
+		<h:panelGrid columns="2">
+
+			#{cc.attrs.namePrompt}
+
+			<h:inputText id="name" value="#{cc.attrs.name}" />
+			
+			#{cc.attrs.passwordPrompt}
+			
+			<h:inputText id="password" value="#{cc.attrs.password}" />
+			
+			<h:commandButton value="#{cc.attrs.loginButtonText}" action="#{cc.attrs.loginAction}"/>
+			
+
+
+		</h:panelGrid>
+
+
+	</h:form>
+	<p>#{cc.resourceBundleMap.footer}</p>
+
+</composite:implementation>
+
+
+
+</html>

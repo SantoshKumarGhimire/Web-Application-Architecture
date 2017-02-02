@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:util="http://java.sun.com/jsf/composite/util">
+<h:head>
+	<title>#{msgs.loginWindowTitle}</title>
+</h:head>
+
+<h:body>
+      #{msgs.loginHeading}
+      <util:login namePrompt="#{msgs.namePrompt}" name="#{user.name}"
+		passwordPrompt="#{msgs.passwordPrompt}" password="#{user.password}"
+		loginButtonText="#{msgs.loginButtonText}" loginAction="#{user.login}">
+
+
+		<f:validateLength maximum="10" for="inputs" />
+		<f:validateLength minimum="4" for="nameInput" />
+		<f:validator validatorId="waa.simplecomposit.Password" for="passwordInput" />
+		
+		
+	</util:login>
+
+
+
+
+	<div style="color: red;">
+<!-- 		<util:debug /> -->
+	</div>
+</h:body>
+</html>

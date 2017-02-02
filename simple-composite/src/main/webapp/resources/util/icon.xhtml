@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+
+<composite:interface>
+	<composite:attribute name="image" required="true" />
+
+	<composite:attribute name="doValidation" default="false" />
+
+	<composite:attribute name="styleClass" default="icon" />
+
+	<composite:attribute name="actionMethod"
+		method-signature="java.lang.String action()" />
+
+</composite:interface>
+
+<composite:implementation>
+
+	<h:form>
+
+		<h:commandLink action="#{cc.attrs.actionMethod}"
+			immediate="#{not cc.attrs.doValidation}">
+
+			<h:graphicImage url="#{cc.attrs.image}"
+				styleClass="#{cc.attrs.styleClass}" />
+
+		</h:commandLink>
+
+	</h:form>
+
+
+</composite:implementation>
+</html>
